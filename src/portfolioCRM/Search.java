@@ -76,26 +76,8 @@ public class Search {
 			}
 
 			//データの表示
-			System.out.println("―――――――――   検索結果  ――――――――――");
-
-			for (String[] row : data) {
-				String number = row[0];
-				String name = row[1];
-				String prefecture = row[2];
-				String gender = row[3];
-				String birthdate = row[4];
-				String issueDate = row[5];
-
-				//表示
-				System.out.println("番号: " + number);
-				System.out.println("名前: " + name);
-				System.out.println("都道府県: " + prefecture);
-				System.out.println("性別: " + (Integer.parseInt(gender) == 0 ? "女性" : "男性"));
-				System.out.println("生年月日: " + birthdate);
-				System.out.println("登録日: " + issueDate);
-				System.out.println();
-			}
-			System.out.println("――――――――――――――――――――――――――");
+			System.out.println("検索結果は以下の通りです。");
+			Message.result(data);
 
 		} catch ( IOException e) {
 			e.printStackTrace();
@@ -129,6 +111,10 @@ public class Search {
 
 			try {
 				jokenNumber = scanner.nextInt();
+				if (jokenNumber == 9999) {
+					//アプリの終了
+					Exit.ExitApp();
+				}
 				if (jokenNumber < 0 || jokenNumber > 6) {
 					System.out.println("入力された番号の条件はありません。");
 				} else {
@@ -149,6 +135,10 @@ public class Search {
 
 			try {
 				sort = scanner.nextInt();
+				if (jokenNumber == 9999) {
+					//アプリの終了
+					Exit.ExitApp();
+				}
 				if (sort != 1 && sort != 2) {
 					System.out.println("入力された番号の順番はありません。");
 				} else {

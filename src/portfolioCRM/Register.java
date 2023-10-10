@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Register {
@@ -82,8 +84,12 @@ public class Register {
 			// テキストファイルにデータを書き込む
 			String data = strNumber + "," + name + "," + prefecture + ","+ gender +"," + birth + "," + nowDate;
 			printWriter.println(data);
-			System.out.println("会員番号：" + strNumber + "で、登録完了しました。");
-			System.out.println(" "); //改行
+
+			//結果メッセージの表示
+			List<String[]> dataList = new ArrayList<>();
+			dataList.add(data.split(","));
+			System.out.println("以下の内容で、登録が完了しました。");
+			Message.result(dataList);
 
 			// リソースをクローズ
 			printWriter.close();

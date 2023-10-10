@@ -27,24 +27,25 @@ public class Main {
 				InFile = false;
 			}
 		}
+		//アプリ終了の方法表示
+		Exit.ExitMsg();
 
 		//メニューの表示
 		while (StartMenu) {
 			System.out.println("実行するメニューの番号を入力してください ");
-			System.out.println("1：登録　2：検索　0:終了　＞");
+			System.out.println("1：登録　2：検索　3：削除　0:終了　＞");
 			try {
 				int ChoiceMenu ;
 				ChoiceMenu = scanner.nextInt();
 
-				if (ChoiceMenu < 0 || ChoiceMenu > 2) {
+				if (ChoiceMenu < 0 || ChoiceMenu > 3) {
 					System.out.println("入力された番号のメニューはありません。");
 				} else {
 					switch (ChoiceMenu) {
 					case 1:  //登録
 						System.out.println("登録します。");
 						if (!Register.writeTxt(FilePath)){
-							System.out.println("はじめからやり直してください。");
-							System.out.println(" ");
+							Message.restartMsg();
 						}
 						break;
 					case 2:  //検索
@@ -52,13 +53,18 @@ public class Main {
 						String[] data ;
 						data = Search.searchMenu() ;
 						if(!Search.readTxt(FilePath,data)){
-							System.out.println("はじめからやり直してください。");
-							System.out.println(" ");
+							Message.restartMsg();
+						}
+						break;
+					case 3:  //削除
+						System.out.println("削除します。");
+						if(!Delete.deleteMenu(FilePath)) {
+							Message.restartMsg();
 						}
 						break;
 					case 0:  //終了
-						System.out.println("終了します");
-						StartMenu = false;
+						//アプリの終了
+						Exit.ExitApp();
 						break;
 					default:  //その他
 						System.out.println("入力された番号のメニューはありません。");
