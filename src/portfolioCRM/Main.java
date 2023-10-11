@@ -33,12 +33,12 @@ public class Main {
 		//メニューの表示
 		while (StartMenu) {
 			System.out.println("実行するメニューの番号を入力してください ");
-			System.out.println("1：登録　2：検索　3：削除　0:終了　＞");
+			System.out.println("1：登録　2：検索　3：削除　4：修正　0:終了　＞");
 			try {
 				int ChoiceMenu ;
 				ChoiceMenu = scanner.nextInt();
 
-				if (ChoiceMenu < 0 || ChoiceMenu > 3) {
+				if (ChoiceMenu < 0 || ChoiceMenu > 4) {
 					System.out.println("入力された番号のメニューはありません。");
 				} else {
 					switch (ChoiceMenu) {
@@ -59,6 +59,12 @@ public class Main {
 					case 3:  //削除
 						System.out.println("削除します。");
 						if(!Delete.deleteMenu(FilePath)) {
+							Message.restartMsg();
+						}
+						break;
+					case 4:  //修正
+						System.out.println("登録されている情報を修正します。");
+						if(!Edit.EditMenu(FilePath)) {
 							Message.restartMsg();
 						}
 						break;

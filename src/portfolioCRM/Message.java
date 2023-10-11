@@ -49,7 +49,7 @@ public class Message {
 		String strNumber ="";
 
 		while (!kaiNumberFlg) {
-			System.out.print(Message.getMessage(4));
+			System.out.println(Message.getMessage(4));
 
 			try {
 				strNumber = scanner.nextLine();
@@ -74,7 +74,7 @@ public class Message {
 	//名前の入力
 	public static String name (){
 		Scanner scanner = new Scanner(System.in);
-		System.out.print(Message.getMessage(0));
+		System.out.println(Message.getMessage(0));
 		String name = scanner.nextLine();
 		if (isParsableInteger(name)) {
 			if (Integer.parseInt(name) == 9999) {
@@ -90,9 +90,7 @@ public class Message {
 	//都道府県の入力
 	public static String prefecture (){
 		Scanner scanner = new Scanner(System.in);
-		System.out.print(Message.getMessage(1));
-		System.out.println();
-		System.out.print(Message.getMessage(5));
+		System.out.println(Message.getMessage(1));
 		String pref = scanner.nextLine();
 		if(isParsableInteger(pref)) {
 			if (Integer.parseInt(pref) == 9999) {
@@ -114,7 +112,7 @@ public class Message {
 		boolean birthFlg = false;
 		String birth = "";
 		while (!birthFlg) {
-			System.out.print(Message.getMessage(2));
+			System.out.println(Message.getMessage(2));
 			String birthdate = scanner.nextLine();
 			if(isParsableInteger(birthdate)) {
 				if (Integer.parseInt(birthdate) == 9999) {
@@ -148,7 +146,6 @@ public class Message {
 
 		while (!genderFlg) {
 			System.out.println("性別を次から選んで番号を入力してください。");
-			System.out.println(Message.getMessage(5));
 			System.out.println("0：女性　1：男性　＞");
 			gender = scanner.nextInt();
 			if (gender == 9999) {

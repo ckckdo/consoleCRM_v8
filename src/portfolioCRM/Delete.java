@@ -81,7 +81,6 @@ public class Delete {
 		while (!choiceAct) {
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("削除する条件を次から1つ選択し番号を入力してください");
-			System.out.println(Message.getMessage(5));
 			System.out.println("1：会員番号　2：名前　＞");
 
 			try {
