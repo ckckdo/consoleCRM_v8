@@ -86,6 +86,7 @@ public class Edit {
 
 			try {
 				inputMenu = scanner.nextInt();
+				System.out.println();
 				if (inputMenu == 9999) {
 					//アプリの終了
 					Exit.ExitApp();
@@ -107,9 +108,11 @@ public class Edit {
 		switch (inputMenu){
 		case 1:     //会員番号
 			Act[1] = Message.kaiNumber();
+			System.out.println();
 			break;
 		case 2:     //名前
 			Act[1] = Message.name();
+			System.out.println();
 			break;
 		default:
 		}

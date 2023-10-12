@@ -53,6 +53,7 @@ public class Message {
 
 			try {
 				strNumber = scanner.nextLine();
+				System.out.println();
 				kaiNumber = Integer.parseInt(strNumber);
 				if (kaiNumber == 9999) {
 					//アプリの終了
@@ -76,6 +77,7 @@ public class Message {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println(Message.getMessage(0));
 		String name = scanner.nextLine();
+		System.out.println();
 		if (isParsableInteger(name)) {
 			if (Integer.parseInt(name) == 9999) {
 				//アプリの終了
@@ -84,6 +86,7 @@ public class Message {
 		}
 		name = name.replace("　",""); //空欄削除
 		name = name.trim(); //空欄削除
+		name =  name.replaceAll("[^a-zA-Z0-9ぁ-んァ-ヶ一-龠]",""); //不要な文字の削除
 		return  name;
 	}
 
@@ -92,6 +95,7 @@ public class Message {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println(Message.getMessage(1));
 		String pref = scanner.nextLine();
+		System.out.println();
 		if(isParsableInteger(pref)) {
 			if (Integer.parseInt(pref) == 9999) {
 				//アプリの終了
@@ -101,6 +105,7 @@ public class Message {
 
 		pref = pref.replace("　",""); //空欄削除
 		pref = pref.trim(); //空欄削除
+		pref = pref.replaceAll("[^a-zA-Z0-9ぁ-んァ-ヶ一-龠]",""); //不要な文字の削除
 		return  pref;
 	}
 
@@ -114,6 +119,7 @@ public class Message {
 		while (!birthFlg) {
 			System.out.println(Message.getMessage(2));
 			String birthdate = scanner.nextLine();
+			System.out.println();
 			if(isParsableInteger(birthdate)) {
 				if (Integer.parseInt(birthdate) == 9999) {
 					//アプリの終了
@@ -148,6 +154,7 @@ public class Message {
 			System.out.println("性別を次から選んで番号を入力してください。");
 			System.out.println("0：女性　1：男性　＞");
 			gender = scanner.nextInt();
+			System.out.println();
 			if (gender == 9999) {
 				//アプリの終了
 				Exit.ExitApp();
